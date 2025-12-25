@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Health Risk Insights – CarePredict</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function checkRisk() {
+      let bmi = parseFloat(document.getElementById('bmi').value);
+      let risk = '';
+      if(bmi < 18.5) risk = 'Low body weight may lead to nutrient deficiencies.';
+      else if(bmi < 25) risk = 'You are healthy, maintain lifestyle.';
+      else if(bmi < 30) risk = 'Moderate risk of heart disease and diabetes.';
+      else risk = 'High risk! Consult a doctor and improve lifestyle.';
+      document.getElementById('riskResult').innerHTML = `<p>${risk}</p>`;
+    }
+  </script>
+</head>
+<body>
+<div class="container">
+  <div class="card" style="text-align:center">
+    <h1>Health Risk Insights</h1>
+    <p>Enter your BMI to see possible health risks.</p>
+  </div>
+
+  <div class="card" style="text-align:center">
+    <label>BMI:</label>
+    <input type="number" id="bmi"><br><br>
+    <button onclick="checkRisk()">Check Risk</button>
+  </div>
+
+  <div class="card" id="riskResult" style="text-align:center"></div>
+  <div class="card clickable" onclick="location.href='index.html'">🏠 Back to Home</div>
+</div>
+</body>
+</html>

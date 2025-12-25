@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab Report Analyzer – CarePredict</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function analyzeLab() {
+      let sugar = parseFloat(document.getElementById('sugar').value);
+      let chol = parseFloat(document.getElementById('chol').value);
+      let result = '';
+
+      if(sugar < 70) result += 'Low Blood Sugar. ';
+      else if(sugar <= 140) result += 'Normal Blood Sugar. ';
+      else result += 'High Blood Sugar. ';
+
+      if(chol < 200) result += 'Normal Cholesterol.';
+      else if(chol <= 239) result += 'Borderline High Cholesterol.';
+      else result += 'High Cholesterol.';
+
+      document.getElementById('labResult').innerHTML = `<p>${result}</p>`;
+    }
+  </script>
+</head>
+<body>
+<div class="container">
+  <div class="card" style="text-align:center">
+    <h1>Lab Report Analyzer</h1>
+  </div>
+
+  <div class="card" style="text-align:center">
+    <label>Blood Sugar (mg/dL):</label>
+    <input type="number" id="sugar"><br><br>
+    <label>Cholesterol (mg/dL):</label>
+    <input type="number" id="chol"><br><br>
+    <button onclick="analyzeLab()">Analyze</button>
+  </div>
+
+  <div class="card" id="labResult" style="text-align:center"></div>
+  <div class="card clickable" onclick="location.href='index.html'">🏠 Back to Home</div>
+</div>
+</body>
+</html>
